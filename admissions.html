@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - Maa Rajpati Devi Educational Trust</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+
+        /* Header and Navigation */
+
+        header {
+            background: linear-gradient(135deg, #6a11cb, #759bde);
+            color: white;
+            padding: 15px 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1em;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .admission-hero {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/admissionBG.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .admission-hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .admission-hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        /* Timeline and Process Section */
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        /* Cards */
+        .requirement-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #0073e6;
+        }
+
+        .requirement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Table Styles */
+       /* .fee-table th {
+            background: #0073e6;
+            color: white;
+        }
+
+        .fee-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .fee-table tr:hover {
+            background-color: #f0f0f0;
+        }     */
+
+        /* Button Styles */
+        .apply-button {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            display: inline-block;
+            padding: 15px 30px;
+            background: #0073e6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .apply-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .apply-button:hover::before {
+            left: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+           
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #6a11cb;
+                margin-top: 20px;
+                padding: 10px 0;
+            }
+
+            /* Hamburger Icon */
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+            }
+
+            .hamburger span {
+                height: 3px;
+                width: 25px;
+                background: white;
+                margin: 4px 0;
+                border-radius: 2px;
+                transition: 0.3s;
+            }
+
+            .menu-toggle {
+                display: flex;
+                margin-left: auto;
+            }
+
+            .menu-toggle {
+                display: none;
+                font-size: 1.8em;
+                color: #6a11cb(0, 0, 0);
+                cursor: pointer;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+             nav ul li {
+                text-align: center;
+                padding: 10px 20px;
+            }
+
+            .admission-hero h1 {
+                font-size: 2.5em;
+            }
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5em;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ffd700;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="img/logo.jpg" alt="School Logo" class="logo">
+            <div class="hamburger" onclick="document.querySelector('nav ul').classList.toggle('active')">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="admission-hero">
+        <h1>Admissions Open</h1>
+        <p>Join us in our journey of excellence in education</p>
+        <a href="#apply" class="apply-button">Apply Now</a>
+    </section>
+
+    <section class="process-section">
+        <h2>Admission Process</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Step 1: Application</h3>
+                    <p>Fill out the online application form or collect it from the school office</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>Step 2: Document Submission</h3>
+                    <p>Submit required documents including previous academic records</p>
+                </div>
+            </div>
+            <!-- <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Step 3: Entrance Test</h3>
+                    <p>Appear for the entrance assessment (for classes 2 and above)</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>Step 4: Interview</h3>
+                    <p>Parent-student interview with school authorities</p>
+                </div>
+            </div> -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Step 3: Admission</h3>
+                    <p>Fee payment and final admission confirmation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="requirements-section">
+        <h2 style="text-align: center; margin-bottom: 40px;">Required Documents</h2>
+        <div class="requirements-grid">
+            <div class="requirement-card">
+                <h3>For Primary Classes (1-5)</h3>
+                <ul>
+                    <li>Birth Certificate</li>
+                    <li>Transfer Certificate (if applicable)</li>
+                    <li>Report Card of Previous Class</li>
+                    <li>Passport Size Photographs</li>
+                    <li>Aadhar Card Copy</li>
+                    <li>Parent's ID Proof</li>
+                </ul>
+            </div>
+            <div class="requirement-card">
+                <h3>For Middle School (6-8)</h3>
+                <ul>
+                    <li>All Documents Required for Primary</li>
+                    <li>Previous 2 Years' Report Cards</li>
+                    <li>Character Certificate</li>
+                </ul>
+            </div>
+            <div class="requirement-card">
+                <h3>For Secondary (9-10)</h3>
+                <ul>
+                    <li>All Documents Required for Middle School</li>
+                    <li>Migration Certificate (if applicable)</li>
+                    <!-- <li>CBSE Registration Details</li> -->
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <!-- Add these styles to your existing style section -->
+        <style>
+            .process-section {
+                padding: 80px 20px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .process-section h2 {
+                text-align: center;
+                color: #333;
+                font-size: 2.5em;
+                margin-bottom: 30px;
+            }
+
+            .timeline {
+                position: relative;
+                max-width: 1000px;
+                margin: 0 auto;
+                padding: 40px 0;
+            }
+
+            .timeline::after {
+                content: '';
+                position: absolute;
+                width: 4px;
+                background: #0073e6;
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                margin-left: -2px;
+            }
+
+            .timeline-item {
+                padding: 10px 40px;
+                position: relative;
+                width: 50%;
+                box-sizing: border-box;
+            }
+
+            .timeline-item.left {
+                left: 0;
+            }
+
+            .timeline-item.right {
+                left: 50%;
+            }
+
+            .timeline-content {
+                padding: 20px;
+                background: white;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .requirements-section {
+                padding: 80px 20px;
+                background: #f8f9fa;
+            }
+
+            .requirements-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .requirement-card {
+                background: white;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .requirement-card h3 {
+                color: #0073e6;
+                margin-bottom: 20px;
+            }
+
+            .requirement-card ul {
+                padding-left: 20px;
+            }
+
+            .requirement-card li {
+                margin-bottom: 10px;
+            }
+
+            .fee-structure {
+                max-width: 1000px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            .fee-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 30px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                background: white;
+            }
+
+            .fee-table th,
+            .fee-table td {
+                padding: 15px;
+                text-align: center;
+                border: 1px solid #ddd;
+            }
+
+            .admission-hero {
+                height: 60vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/admissionBG.jpeg');
+                background-size: cover;
+                background-position: center;
+            }
+        </style>
+        <!-- <div class="fee-structure">
+            <h2>Fee Structure 2023-24</h2>
+            <table class="fee-table">
+                <tr>
+                    <th>Class</th>
+                    <th>Admission Fee</th>
+                    <th>Annual Fee</th>
+                    <th>Quarterly Fee</th>
+                </tr>
+                <tr>
+                    <td>Class 1-5</td>
+                    <td>₹10,000</td>
+                    <td>₹15,000</td>
+                    <td>₹8,000</td>
+                </tr>
+                <tr>
+                    <td>Class 6-8</td>
+                    <td>₹12,000</td>
+                    <td>₹18,000</td>
+                    <td>₹9,000</td>
+                </tr>
+                <tr>
+                    <td>Class 9-10</td>
+                    <td>₹15,000</td>
+                    <td>₹20,000</td>
+                    <td>₹10,000</td>
+                </tr>
+            </table>
+        </div> -->
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Contact Us</h3>
+                <p>Email: mprs2508@gmail.com</p>
+                <p>Phone: +91 8625862879</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <!-- <p><a href="careers.html" style="color: white;">Careers</a></p> -->
+                <p><a href="news.html" style="color: white;">News & Events</a></p>
+            </div>
+            <div class="social-links">
+                <h3>Follow Us</h3>
+                <a href="https://www.facebook.com/share/1BoEKA8SbQ/"><i class="fab fa-facebook"></i></a>
+                <a href="https://x.com/mprs2508?t=lHwTFiNp5CXmdXt93_5PoA&s=09"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/mrdt.in?igsh=eGhocWd2d2ZtcXpx"><i class="fab fa-instagram"></i></a>
+                <!-- <a href="#"><i class="fab fa-linkedin"></i></a> -->
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

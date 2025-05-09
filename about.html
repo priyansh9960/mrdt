@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Maa Rajpati Devi Educational Trust</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6a11cb, #759bde);
+            color: white;
+            padding: 15px 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1em;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+
+        .hero-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("img/about_us.jpeg") center/cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-banner h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .hero-banner p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: bold;
+        }
+
+        .about-section {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .about-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-card i {
+            font-size: 2.5em;
+            color: #0073e6;
+            margin-bottom: 20px;
+        }
+
+        .about-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .about-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .team-section {
+            background: #f1f5f9;
+            padding: 50px 20px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+        }
+
+        .team-member {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5em;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ffd700;
+        }
+
+        @media (max-width: 768px) {
+            .hero-banner h1 {
+
+                font-size: 1.8em;
+            }
+        }
+
+         /* Hamburger Icon */
+         .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background: white;
+            margin: 4px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8em;
+            color: #6a11cb(0, 0, 0);
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+                margin-left: auto;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #6a11cb;
+                margin-top: 20px;
+                padding: 10px 0;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                text-align: center;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="img/logo.jpg" alt="School Logo" class="logo">
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <section class="hero-banner">
+        <h1>About Maa Rajpati Devi Educational Trust</h1>
+        <p> Registered under 12 ATG</p>
+        <p>Established with a vision to provide quality education, we are committed to nurturing young minds and
+            creating future leaders through holistic development and innovative teaching methodologies.</p>
+    </section>
+
+    <section class="about-section">
+        <div class="about-grid">
+            <div class="about-card">
+                <i class="fas fa-history"></i>
+                <h3>Our History</h3>
+                <p>Founded in [Year], our institution has grown from humble beginnings to become a center of academic
+                    excellence and character building.</p>
+            </div>
+            <div class="about-card">
+                <i class="fas fa-bullseye"></i>
+                <h3>Our Mission</h3>
+                <p>To provide comprehensive education that nurtures intellectual curiosity, promotes ethical values, and
+                    prepares students for future challenges.</p>
+            </div>
+            <div class="about-card">
+                <i class="fas fa-eye"></i>
+                <h3>Our Vision</h3>
+                <p>To be recognized as a leading educational institution that sets benchmarks in academic excellence and
+                    character development.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Replace the existing institutions-section with this -->
+    <section class="institutions-section">
+        <h2 style="text-align: center; color: #333;">Our Institutions</h2>
+        <div class="institutions-grid">
+            <div class="institution-card">
+                <img src="img/kr_sawant logo.jpeg" alt="Paramedical Institute">
+                <h3>Kr Sawant Institute of Paramedical and Skill Development</h3>
+                <a href="kr-sawant-institute.html" class="read-more-btn">Learn More →</a>
+            </div>
+
+            <div class="institution-card">
+                <img src="img/BOS.jpg" alt="Open Schooling">
+                <h3>Board of Open Schooling and Skill</h3>
+                <a href="open-schooling.html" class="read-more-btn">Learn More →</a>
+            </div>
+
+            <div class="institution-card">
+                <img src="img/motherPride.jpg" alt="Mother Pride School">
+                <h3>Mother Pride English School</h3>
+                <a href="mother-pride-school.html" class="read-more-btn">Learn More →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add this to your existing styles -->
+    <style>
+        .read-more-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #0073e6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px;
+            transition: 0.3s;
+        }
+
+        .read-more-btn:hover {
+            background: #005bb8;
+            transform: translateY(-2px);
+        }
+
+        .institutions-section {
+            padding: 60px 20px;
+            background: #fff;
+        }
+
+        .institutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+        }
+
+        .institution-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .institution-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .institution-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .institution-card h3 {
+            color: #0073e6;
+            padding: 20px;
+            margin: 0;
+            font-size: 1.4em;
+            text-align: center;
+            border-bottom: 2px solid #eee;
+        }
+
+        .institution-details {
+            padding: 20px;
+        }
+
+        .institution-details h4 {
+            color: #333;
+            margin: 15px 0 10px;
+        }
+
+        .institution-details ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .institution-details li {
+            padding: 8px 0;
+            color: #666;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .institution-details li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #0073e6;
+        }
+
+        @media (max-width: 768px) {
+            .institutions-grid {
+                gap: 20px;
+            }
+
+            .institution-card {
+                margin: 10px;
+            }
+        }
+    </style>
+
+    <section class="team-section">
+        <h2 style="text-align: center; color: #333;">Our Leadership Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <a href="visionary_founder.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/owner.jpg" alt="Principal">
+                    <h3>Dr. Rajpati devi</h3>
+                    <p>visionary founder</p>
+                    <span class="read-more">Read More →</span>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="Founder.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/Founder.jpeg" alt="Founder">
+                    <h3>Mr. Rakesh Singh</h3>
+                    <p>Founder</p>
+                    <span class="read-more">Read More →</span>
+                </a>
+            </div>
+            <div class="team-member">
+                <a href="secretary.html" style="text-decoration: none; color: inherit;">
+                    <img src="img/secertary.jpg" alt="Vice Principal">
+                    <h3>Mrs. Bindu singh</h3>
+                    <p>secertary</p>
+                    <span class="read-more">Read More →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Contact Us</h3>
+                <p>Email: mprs2508@gmail.com</p>
+                <p>Phone: +91 8625862879</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <!-- <p><a href="careers.html" style="color: white;">Careers</a></p> -->
+                <p><a href="news.html" style="color: white;">News & Events</a></p>
+            </div>
+            <div class="social-links">
+                <h3>Follow Us</h3>
+                <a href="https://www.facebook.com/share/1BoEKA8SbQ/"><i class="fab fa-facebook"></i></a>
+                <a href="https://x.com/mprs2508?t=lHwTFiNp5CXmdXt93_5PoA&s=09"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/mrdt.in?igsh=eGhocWd2d2ZtcXpx"><i class="fab fa-instagram"></i></a>
+                <!-- <a href="#"><i class="fab fa-linkedin"></i></a> -->
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        toggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+
+
+</body>
+
+</html>

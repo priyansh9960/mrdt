@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mother Pride English School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+            body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+
+        /* Header and Navigation */
+        header {
+            background: linear-gradient(135deg, #6a11cb, #759bde); /* purple to blue */
+            color: white;
+            padding: 15px 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1em;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        /* Copy basic styles from about.html */
+
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/1600x900/?preschool,kindergarten') center/cover;
+            height: 30vh;
+            justify-content: center;
+            color: white;
+            font-size: larger;
+        }
+        .hero-section h1{
+            text-align: center;
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 250%;
+            flex-wrap: nowrap;
+        }
+
+        .programs-section {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .program-image {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .program-card:hover .program-image img {
+            transform: scale(1.1);
+        }
+
+        .program-content {
+            padding: 25px;
+        }
+
+        .program-content h3 {
+            color: #0073e6;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .features-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0073e6, #00408b);
+            color: white;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card i {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+
+        .activities-section {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .activity-slider {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .activity-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .activity-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .activity-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 20px;
+            transition: bottom 0.3s;
+        }
+
+        .activity-card:hover .activity-overlay {
+            bottom: 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #0073e6;
+        }
+        @media (max-width: 768px) {
+            .hero-banner h1 {
+                font-size: 2em;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #6a11cb;
+                margin-top: 20px;
+                padding: 10px 0;
+            }
+             /* Hamburger Icon */
+             .hamburger {
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+            }
+
+            .hamburger span {
+                height: 3px;
+                width: 25px;
+                background: white;
+                margin: 4px 0;
+                border-radius: 2px;
+                transition: 0.3s;
+            }
+
+            .menu-toggle {
+                display: flex;
+                margin-left: auto;
+            }
+
+            .menu-toggle {
+                display: none;
+                font-size: 1.8em;
+                color: #6a11cb(0, 0, 0);
+                cursor: pointer;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+             nav ul li {
+                text-align: center;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="img/logo.jpg" alt="School Logo" class="logo">
+            <div class="hamburger" onclick="document.querySelector('nav ul').classList.toggle('active')">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Replace the slider-container section with this simple hero section -->
+    <section class="hero-section">
+        <img src="img/school1.jpg" alt="School Background" class="hero-background">
+        <div class="hero-content">
+            <h1>Mother Pride English School</h1>
+            <p>Nurturing Young Minds, Building Bright Futures</p>
+        </div>
+    </section>
+
+    <!-- Replace the programs-section with this new slider -->
+    <section class="programs-section">
+        <h2 class="section-title">Our Programs</h2>
+        <div class="program-slider">
+            <div class="program-slide active">
+                <img src="img/school9.jpeg" alt="Program 1">
+                <div class="program-info">
+                    <h3>Activities</h3>
+                    <!-- <p>Mother Pride English School</p> -->
+                </div>
+            </div>
+            <!-- <div class="program-slide">
+                <img src="school8.jpeg" alt="Program 2">
+                <div class="program-info">
+                    <h3>Nursery</h3>
+                    <p>Mother Pride English School</p>
+                </div>
+            </div>
+            <div class="program-slide">
+                <img src="school5.jpg" alt="Program 3">
+                <div class="program-info">
+                    <h3>Kindergarten</h3>
+                    <p>Mother Pride English School</p>
+                </div>
+            </div>
+            <div class="program-slide">
+                <img src="school6.jpeg" alt="Program 4">
+                <div class="program-info">
+                    <h3>Primary</h3>
+                    <p>Mother Pride English School</p>
+                </div>
+            </div> -->
+             <div class="program-slide">
+                <img src="img/school11.jpeg" alt="Program 5">
+                <div class="program-info">
+                    <h3>Middle School</h3>
+                    <p>Mother Pride English School</p>
+                </div>
+            </div> 
+            <div class="program-slide">
+                <img src="img/school3.jpg" alt="Program 6">
+                <div class="program-info">
+                    <h3>Activities</h3>
+                    <!-- <p>Mother Pride English School</p> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add these styles -->
+    <style>
+        .hero-section {
+            position: relative;
+            height: 70vh;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            z-index: 2;
+        }
+
+        .program-slider {
+            position: relative;
+            max-width: 1200px;
+            margin: 40px auto;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .program-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .program-slide.active {
+            opacity: 1;
+        }
+
+        .program-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .program-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .program-info h3 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        .program-info p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+        }
+        
+        footer {
+            background: #222;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5em;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ffd700;
+        }
+
+        @media (max-width: 768px) {
+            .hero-banner h1 {
+                font-size: large;
+            }
+            .features-section.feature-grid .feature-card {
+                size: 40px;
+                
+            }
+        }
+    </style>
+
+
+    <!-- Add this script for the program slider -->
+    <script>
+        let programSlideIndex = 0;
+        const programSlides = document.querySelectorAll('.program-slide');
+        
+        function showProgramSlide(index) {
+            programSlides.forEach(slide => slide.classList.remove('active'));
+            programSlides[index].classList.add('active');
+        }
+
+        function nextProgramSlide() {
+            programSlideIndex = (programSlideIndex + 1) % programSlides.length;
+            showProgramSlide(programSlideIndex);
+        }
+
+        // Change program slide every 4 seconds
+        setInterval(nextProgramSlide, 4000);
+    </script>
+    <section class="features-section">
+        <h2 class="section-title" style="color: white;">Our Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <i class="fas fa-child"></i>
+                <h3>Child-Centric Approach</h3>
+                <p>Personalized attention to each child's development</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-brain"></i>
+                <h3>Montessori Method</h3>
+                <p>Learning through discovery and exploration</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Safe Environment</h3>
+                <p>CCTV monitored premises with trained staff</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-apple-alt"></i>
+                <h3>Healthy Meals</h3>
+                <p>Nutritious and balanced diet plans</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="activities-section">
+        <h2 class="section-title">Our Activities</h2>
+        <div class="activity-slider">
+            <div class="activity-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-cCRsq0U_zhYGy76NYBt9edjElHUWnInKAw&s" alt="Sports">
+                <div class="activity-overlay">
+                    <h3>Sports & Games</h3>
+                    <p>Physical development through structured play</p>
+                </div>
+            </div>
+            <div class="activity-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh8a7-ioc6IhzMW0Y_haa9cQBoPFD4zX7U4g&s" alt="Art">
+                <div class="activity-overlay">
+                    <h3>Arts & Crafts</h3>
+                    <p>Creative expression and fine motor skills</p>
+                </div>
+            </div>
+            <div class="activity-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSENFgY1J1wNDILne9ZPtlopAn3ZWfNlbOS0Q&s" alt="Music">
+                <div class="activity-overlay">
+                    <h3>Music & Dance</h3>
+                    <p>Rhythmic development and coordination</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Contact Us</h3>
+                <p>Email: mprs2508@gmail.com</p>
+                <p>Phone: +91 8625862879</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <!-- <p><a href="careers.html" style="color: white;">Careers</a></p> -->
+                <p><a href="news.html" style="color: white;">News & Events</a></p>
+            </div>
+            <div class="social-links">
+                <h3>Follow Us</h3>
+                <a href="https://www.facebook.com/share/1BoEKA8SbQ/"><i class="fab fa-facebook"></i></a>
+                <a href="https://x.com/mprs2508?t=lHwTFiNp5CXmdXt93_5PoA&s=09"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/mrdt.in?igsh=eGhocWd2d2ZtcXpx"><i class="fab fa-instagram"></i></a>
+                <!-- <a href="#"><i class="fab fa-linkedin"></i></a> -->
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

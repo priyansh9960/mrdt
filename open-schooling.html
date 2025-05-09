@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Starlight Academy | Affiliated School</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f0f4f8;
+      color: #333;
+    }
+
+    .hero-section {
+      background-image: url("img/");
+      background: linear-gradient(135deg, #91c6fb, #004890);
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('img/pattern.png');
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    .hero-section .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-section h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .hero-section p {
+      font-size: 1.4rem;
+      margin-bottom: 30px;
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 10px 20px;
+      border-radius: 30px;
+      backdrop-filter: blur(5px);
+      margin-top: 20px;
+      border: 1px solid rgba(255,255,255,0.3);
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    .info-section {
+      background-color: #ffffff;
+      border-radius: 15px;
+      padding: 40px;
+      margin-top: -70px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 2;
+    }
+
+    .info-title {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #004080;
+    }
+
+    .info-box {
+      background-color: #f8f9fa;
+      border-left: 5px solid #004080;
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .info-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      border-left: 5px solid #91c6fb;
+    }
+    
+    .info-box::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, rgba(145, 198, 251, 0.2) 0%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+    }
+
+    .info-box strong {
+      color: #004080;
+      font-size: 1.2rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    /* Animation keyframes */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .footer-bar {
+      background-color: #004080;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    
+    /* Add these new styles for the header and nav */
+    header {
+      background: linear-gradient(135deg, #6a11cb, #759bde);
+      /* purple to blue */
+      color: white;
+      padding: 15px 40px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Rest of the CSS remains the same */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      height: 60px;
+      width: auto;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1em;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .social-links a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5em;
+      transition: 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #ffd700;
+    }
+
+      @media (max-width: 768px) {
+            .hero-banner h1 {
+                font-size: 2em;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #6a11cb;
+                margin-top: 20px;
+                padding: 10px 0;
+            }
+             /* Hamburger Icon */
+             .hamburger {
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+            }
+
+            .hamburger span {
+                height: 3px;
+                width: 25px;
+                background: white;
+                margin: 4px 0;
+                border-radius: 2px;
+                transition: 0.3s;
+            }
+
+            .menu-toggle {
+                display: flex;
+                margin-left: auto;
+            }
+
+            .menu-toggle {
+                display: none;
+                font-size: 1.8em;
+                color: #6a11cb(0, 0, 0);
+                cursor: pointer;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+             nav ul li {
+                text-align: center;
+                padding: 10px 20px;
+            }
+        }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+        <img src="img/logo.jpg" alt="School Logo" class="logo">
+        <div class="hamburger" onclick="document.querySelector('nav ul').classList.toggle('active')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <h1>Board of Open Schooling</h1>
+      <p>Empowering Future Generations Through Excellence in Education</p>
+      <div class="hero-badge">
+        <i class="fas fa-graduation-cap me-2"></i> Flexible Learning Pathways
+      </div>
+    </div>
+  </section>
+
+  <!-- Info Section -->
+  <div class="container">
+    <div class="info-section mt-5">
+      <div class="row mb-4">
+        <div class="col-md-12 text-center">
+          <h2 class="info-title">Discover Our Open Schooling Program</h2>
+          <p class="text-muted">A flexible approach to quality education for all learners</p>
+        </div>
+      </div>
+      
+      <div class="info-box">
+        <strong><i class="fas fa-school me-2"></i> About the School:</strong>
+        <p>
+          Starlight Academy, established in 2005, is a center of academic
+          brilliance and holistic education. The institution stands tall with
+          a mission to cultivate curious minds, responsible citizens, and
+          confident individuals. With modern infrastructure and value-based
+          learning, it shapes students into the leaders of tomorrow.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <strong><i class="fas fa-map-marker-alt me-2"></i> Location:</strong>
+        <p>123 Future Street, Learning City, State - 456789</p>
+      </div>
+
+      <div class="info-box">
+        <strong><i class="fas fa-certificate me-2"></i> Affiliation & Curriculum:</strong>
+        <p>
+          Affiliated with CBSE, New Delhi, the school offers a well-rounded
+          curriculum from Nursery to Class XII. The academic structure
+          emphasizes both theoretical knowledge and practical application.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <strong><i class="fas fa-laptop me-2"></i> Facilities:</strong>
+        <p>
+          Science Laboratories, Computer Lab, Smart Classrooms, Sports
+          Facilities, Well-stocked Library, Activity Rooms for Music and Arts,
+          and Career Counseling sessions for higher classes.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <strong><i class="fas fa-lightbulb me-2"></i> Vision & Mission:</strong>
+        <p>
+          To create a nurturing environment where students can grow
+          intellectually, emotionally, and socially. The school's vision
+          revolves around innovation, inclusion, and inspiration.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <strong><i class="fas fa-phone-alt me-2"></i> Contact Information:</strong>
+        <p>
+          Phone: +91 8625862879<br />
+          Email: mprs2508@gmail.com<br />
+        </p>
+      </div>
+      
+      <div class="text-center mt-5">
+        <a href="contact.html" class="btn btn-primary btn-lg px-4 py-2">
+          <i class="fas fa-paper-plane me-2"></i> Inquire Now
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div>
+        <h3>Contact Us</h3>
+        <p>Email: mprs2508@gmail.com</p>
+        <p>Phone: +91 8625862879</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <!-- <p><a href="careers.html" style="color: white;">Careers</a></p> -->
+        <p><a href="news.html" style="color: white;">News & Events</a></p>
+      </div>
+      <div class="social-links">
+        <h3>Follow Us</h3>
+        <a href="https://www.facebook.com/share/1BoEKA8SbQ/"><i class="fab fa-facebook"></i></a>
+        <a href="https://x.com/mprs2508?t=lHwTFiNp5CXmdXt93_5PoA&s=09"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/mrdt.in?igsh=eGhocWd2d2ZtcXpx"><i class="fab fa-instagram"></i></a>
+        <!-- <a href="#"><i class="fab fa-linkedin"></i></a> -->
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

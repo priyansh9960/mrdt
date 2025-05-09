@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maa Rajpati Devi Educational Trust</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        body {
+            background-color: rgb(108, 197, 202);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Header and Navigation */
+        header {
+            background: linear-gradient(135deg, #6a11cb, #759bde);
+            /* purple to blue */
+            color: rgb(108, 197, 202);
+            padding: 15px 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1em;
+            position: relative;
+            padding: 5px 0;
+            transition: 0.3s;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffd700;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero-banner {
+            background: linear-gradient(#9eb7e3, rgba(44, 43, 43, 0.6)), url("img/school1.jpg") no-repeat center center/cover;
+            color: rgb(255, 255, 255);
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero-banner h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-banner p {
+            font-size: 1.5em;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #ffd700;
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Announcement Banner */
+        .announcement-banner {
+            background: #ffd700;
+            color: #333;
+            padding: 15px 0;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 0;
+            background: #f9fafb;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(1, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
+            color: #0073e6;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .feature-card-body {
+            background: linear-gradient(135deg, #0dcaf0, #ced4da);
+            padding: 30px;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #0dcaf0, #ced4da);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .stat-item h2 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, #0dcaf0, #ced4da);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '\201C';
+            font-size: 5em;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            color: #0073e6;
+            opacity: 0.2;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        /* News & Events */
+        .news-section {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .news-card {
+            background: linear-gradient(135deg, #0dcaf0, #ced4da);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            height: 100%;
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .news-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .news-card:hover .news-img img {
+            transform: scale(1.1);
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-date {
+            color: #0073e6;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: #ffd700;
+        }
+
+        .social-links a {
+            color: white;
+            margin-right: 15px;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ffd700;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #6a11cb;
+                margin-top: 20px;
+                padding: 10px 0;
+            }
+
+            /* Hamburger Icon */
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+            }
+
+            .hamburger span {
+                height: 3px;
+                width: 25px;
+                background: white;
+                margin: 4px 0;
+                border-radius: 2px;
+                transition: 0.3s;
+            }
+
+            .menu-toggle {
+                display: flex;
+                margin-left: auto;
+            }
+
+            .menu-toggle {
+                display: none;
+                font-size: 1.8em;
+                color: #6a11cb(0, 0, 0);
+                cursor: pointer;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                text-align: center;
+                padding: 10px 20px;
+            }
+
+            .hero-banner h1 {
+                font-size: 2.5em;
+            }
+
+            .hero-banner p {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Announcement Banner -->
+    <div class="announcement-banner">
+        <div class="container">
+            <i class="fas fa-bullhorn me-2"></i> Admissions Open for 2025-26 Academic Year! <a href="admissions.html"
+                class="ms-2 text-dark">Apply Now</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <img src="img/logo.jpg" alt="School Logo" class="logo">
+            <div class="hamburger" onclick="document.querySelector('nav ul').classList.toggle('active')">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="container">
+            <h1>Maa Rajpati Devi Educational Trust</h1>
+            <p>Empowering minds, building futures, and nurturing excellence through quality education</p>
+            <a href="admissions.html" class="cta-button">Apply for Admission</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Why Choose Us</h2>
+                <p class="lead">Discover what makes our institution stand out</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-card-body">
+                            <div class="feature-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>Academic Excellence</h3>
+                            <p>Our curriculum is designed to foster critical thinking, creativity, and a deep
+                                understanding of subjects.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-card-body">
+                            <div class="feature-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <h3>Expert Faculty</h3>
+                            <p>Learn from experienced educators who are passionate about teaching and dedicated to
+                                student success.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-card-body">
+                            <div class="feature-icon">
+                                <i class="fas fa-microscope"></i>
+                            </div>
+                            <h3>Modern Facilities</h3>
+                            <p>Access state-of-the-art laboratories, libraries, and sports facilities to enhance your
+                                learning experience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <h2>15+</h2>
+                        <p>Years of Excellence</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <h2>500+</h2>
+                        <p>Students</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <h2>50+</h2>
+                        <p>Expert Faculty</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <h2>95%</h2>
+                        <p>Success Rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Inspiring Young Minds, Shaping Bright Futures</h2>
+                <p class="lead">"Empowering students with knowledge, values, and vision."</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Education is not just about books and exams. It's about igniting the fire of curiosity,
+                            nurturing values, and shaping minds to build a better tomorrow."
+
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="img/parent1.jpg" alt="Parent" onerror="this.src=''">
+                            <div>
+                                <h5 class="mb-0">Thoughtful Message</h5>
+                                <small>— Albert Einstein</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "We don't just teach subjects, we nurture curiosity, character, and courage — one child at a
+                            time."
+
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="img/parent2.jpg" alt="Parent" onerror="this.src=''">
+                            <div>
+                                <h5 class="mb-0">School's Own Motto Message</h5>
+                                <small> — Maa Rajpati Devi Educational Trust</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Events Section -->
+    <section class="news-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Latest News & Events</h2>
+                <p class="lead">Stay updated with what's happening at our school</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="news-card">
+                        <div class="news-img">
+                            <img src="img/school12.jpeg" alt="News" onerror="this.src=''">
+                        </div>
+                        <div class="news-content">
+                            <p class="news-date">December 15, 2023</p>
+                            <h4>Annual Day Celebration</h4>
+                            <p>Join us for our Annual Day celebration featuring cultural performances by our talented
+                                students.</p>
+                            <a href="news.html" class="btn btn-outline-primary btn-sm">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="news-card">
+                        <div class="news-img">
+                            <img src="img/gallery3.jpg" alt="News" onerror="this.src=''">
+                        </div>
+                        <div class="news-content">
+                            <p class="news-date">December 10, 2020</p>
+                            <h4>Science Exhibition</h4>
+                            <p>Our students showcased their innovative science projects at the annual science
+                                exhibition.</p>
+                            <a href="news.html" class="btn btn-outline-primary btn-sm">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="news-card">
+                        <div class="news-img">
+                            <img src="img/school10.jpeg" alt="News" onerror="this.src=''">
+                        </div>
+                        <div class="news-content">
+                            <p class="news-date">August 15, 2022</p>
+                            <h4>Independence Day</h4>
+                            <p>Students and teachers celebrated Independence Day with a special event.
+                            </p>
+                            <a href="news.html" class="btn btn-outline-primary btn-sm">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="news.html" class="btn btn-primary">View All News</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 Education Street, City</li>
+                        <li><i class="fas fa-phone me-2"></i> +91 8625862879</li>
+                        <li><i class="fas fa-envelope me-2"></i> mprs2508@gmail.com</li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2023 Maa Rajpati Devi Educational Trust. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

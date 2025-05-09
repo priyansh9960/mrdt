@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - Maa Rajpati Devi Educational Trust</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6a11cb, #759bde);
+            color: white;
+            padding: 15px 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1em;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+
+
+        /* Hero Section */
+        .academics-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("img/academicEX.jpg");
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .academics-hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .academics-hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        .program-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .program-card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-left: 4px solid #0073e6;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .program-card h3 {
+            color: #0073e6;
+            margin-bottom: 20px;
+        }
+
+        .program-card ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .program-card ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .program-card ul li:before {
+            content: '✓';
+            color: #0073e6;
+            position: absolute;
+            left: 0;
+        }
+
+        .curriculum-section {
+            background: #f1f5f9;
+            padding: 50px 20px;
+        }
+
+        .curriculum-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .subject-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .subject-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .subject-item:hover {
+            transform: translateY(-5px);
+            background: #0073e6;
+            color: white;
+        }
+
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .facility-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .facility-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .facility-card i {
+            font-size: 2.5em;
+            color: #0073e6;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .facility-card:hover i {
+            transform: scale(1.2);
+            color: #ffd700;
+        }
+
+        h2 {
+            text-align: center;
+            color: #1a237e;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #0073e6;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5em;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ffd700;
+        }
+
+         /* Hamburger Icon */
+         .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background: white;
+            margin: 4px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #6a11cb;
+                margin-top: 20px;
+                padding: 10px 0;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .academics-hero h1 {
+                font-size: 2.5em;
+            }
+
+            .program-card {
+                margin: 15px;
+            }
+
+            .facilities-grid {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="img/logo.jpg" alt="School Logo" class="logo">
+            <div class="hamburger" onclick="document.querySelector('nav ul').classList.toggle('active')">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="academics.html" >Academics</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="academics-hero">
+        <h1>Academic Excellence</h1>
+        <p>Nurturing minds through quality education and innovative learning methods</p>
+    </section>
+
+    <section class="program-section">
+        <h2>Our Programs</h2>
+
+        <div class="program-card">
+            <h3>Primary Education (Classes 1-5)</h3>
+            <p>Foundation years focusing on:</p>
+            <ul>
+                <li>Basic literacy and numeracy skills</li>
+                <li>Environmental awareness</li>
+                <li>Creative expression</li>
+                <li>Physical education</li>
+            </ul>
+        </div>
+
+        <div class="program-card">
+            <h3>Middle School (Classes 6-8)</h3>
+            <ul>
+                <li>Advanced core subjects</li>
+                <li>Introduction to computer science</li>
+                <li>Sports and cultural activities</li>
+                <li>Life skills development</li>
+            </ul>
+        </div>
+
+        <div class="program-card">
+            <h3>Secondary Education (Classes 9-10)</h3>
+            <ul>
+                <li>Board examination preparation</li>
+                <li>Career counseling</li>
+                <li>Specialized subject focus</li>
+                <li>Project-based learning</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="curriculum-section">
+        <div class="curriculum-content">
+            <h2>Our Curriculum</h2>
+            <p>We follow perfect educational guidlines curriculum with additional focus on:</p>
+            <div class="subject-list">
+                <div class="subject-item">Mathematics</div>
+                <div class="subject-item">Science</div>
+                <div class="subject-item">English</div>
+                <div class="subject-item">Hindi</div>
+                <div class="subject-item">Social Studies</div>
+                <div class="subject-item">Computer Science</div>
+                <div class="subject-item">Physical Education</div>
+                <div class="subject-item">Arts & Crafts</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="program-section">
+        <h2>Academic Facilities</h2>
+        <div class="facilities-grid">
+            <div class="facility-card">
+                <i class="fas fa-flask"></i>
+                <h3>Science Labs</h3>
+                <p>Well-equipped laboratories for practical learning</p>
+            </div>
+            <div class="facility-card">
+                <i class="fas fa-desktop"></i>
+                <h3>Computer Lab</h3>
+                <p>Modern computers with latest software</p>
+            </div>
+            <div class="facility-card">
+                <i class="fas fa-book"></i>
+                <h3>Library</h3>
+                <p>Extensive collection of books and digital resources</p>
+            </div>
+            <div class="facility-card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h3>Smart Classrooms</h3>
+                <p>Interactive digital learning environment</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Contact Us</h3>
+                <p>Email: mprs2508@gmail.com</p>
+                <p>Phone: +91 8625862879</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <p><a href="news.html" style="color: white;">News & Events</a></p>
+            </div>
+            <div class="social-links">
+                <h3>Follow Us</h3>
+                <a href="https://www.facebook.com/share/1BoEKA8SbQ/"><i class="fab fa-facebook"></i></a>
+                <a href="https://x.com/mprs2508?t=lHwTFiNp5CXmdXt93_5PoA&s=09"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/mrdt.in?igsh=eGhocWd2d2ZtcXpx"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
